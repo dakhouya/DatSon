@@ -39,8 +39,10 @@
           <File BuildType="BUILD" Toolchain="">.\main.c</File>
           <File BuildType="BUILD" Toolchain="">.\bleconnection.c</File>
           <File BuildType="BUILD" Toolchain="">.\SerialComunicationService.c</File>
+          <File BuildType="BUILD" Toolchain="">.\menu.c</File>
           <File BuildType="BUILD" Toolchain="">.\bleconnection.h</File>
           <File BuildType="BUILD" Toolchain="">.\SerialCommunicationService.h</File>
+          <File BuildType="BUILD" Toolchain="">.\menu.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\David\Documents\GitHub\Datson\Firmware\Datson.cydsn\Generated_Source\PSoC4">
@@ -80,6 +82,7 @@
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\LCD.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\LCD.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\LCD_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\LCD_CustChars.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\LCD_LCDPort.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\LCD_LCDPort.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\LCD_LCDPort_aliases.h</File>

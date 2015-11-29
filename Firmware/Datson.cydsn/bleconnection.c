@@ -90,7 +90,7 @@ bleConnectionError_t BleConnectionInit(bleConnection_t* ble, CYBLE_CALLBACK_T st
 
     /*Clear auth error*/
     ble->LastAuthentificationError = CYBLE_GAP_AUTH_ERROR_NONE;
-    ble->mode = LIMITED_MODE;
+    ble->mode = STOP_MODE;
     //BleConnectionStartAdvertising(ble);
     return status;
 }

@@ -1,0 +1,985 @@
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"menu.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.MenuInit,"ax",%progbits
+  18              		.align	2
+  19              		.global	MenuInit
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	MenuInit, %function
+  23              	MenuInit:
+  24              	.LFB35:
+  25              		.file 1 ".\\menu.c"
+   1:.\menu.c      **** /*! \file Menu.c 
+   2:.\menu.c      ****   * \brief handle the menu generation
+   3:.\menu.c      ****   */
+   4:.\menu.c      **** 
+   5:.\menu.c      **** /*****************************************************************************
+   6:.\menu.c      **** * Included headers
+   7:.\menu.c      **** *****************************************************************************/
+   8:.\menu.c      **** #include "menu.h" 
+   9:.\menu.c      **** 
+  10:.\menu.c      **** /*****************************************************************************
+  11:.\menu.c      **** * Public functions
+  12:.\menu.c      **** *****************************************************************************/
+  13:.\menu.c      **** /*! Function that Initialize the menu structure
+  14:.\menu.c      ****  *  \param menu pointer to menu structure
+  15:.\menu.c      ****  */
+  16:.\menu.c      **** void MenuInit(menu_t* menu){
+  26              		.loc 1 16 0
+  27              		.cfi_startproc
+  28              	.LVL0:
+  29 0000 08B5     		push	{r3, lr}
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 3, -8
+  32              		.cfi_offset 14, -4
+  17:.\menu.c      ****     LCD_Start();
+  33              		.loc 1 17 0
+  34 0002 FFF7FEFF 		bl	LCD_Start
+  35              	.LVL1:
+  18:.\menu.c      ****     LCD_ClearDisplay();
+  36              		.loc 1 18 0
+  37 0006 0120     		mov	r0, #1
+  38 0008 FFF7FEFF 		bl	LCD_WriteControl
+  39              	.LVL2:
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 2
+
+
+  19:.\menu.c      ****     LCD_DisplayOn();
+  40              		.loc 1 19 0
+  41 000c 0C20     		mov	r0, #12
+  42 000e FFF7FEFF 		bl	LCD_WriteControl
+  43              	.LVL3:
+  20:.\menu.c      ****     LCD_Position(0u, 0u);
+  44              		.loc 1 20 0
+  45 0012 0020     		mov	r0, #0
+  46 0014 0021     		mov	r1, #0
+  47 0016 FFF7FEFF 		bl	LCD_Position
+  48              	.LVL4:
+  21:.\menu.c      ****     LCD_PrintString("Datson Started");
+  49              		.loc 1 21 0
+  50 001a 0248     		ldr	r0, .L2
+  51 001c FFF7FEFF 		bl	LCD_PrintString
+  52              	.LVL5:
+  22:.\menu.c      **** }
+  53              		.loc 1 22 0
+  54              		@ sp needed
+  55 0020 08BD     		pop	{r3, pc}
+  56              	.L3:
+  57 0022 C046     		.align	2
+  58              	.L2:
+  59 0024 00000000 		.word	.LC0
+  60              		.cfi_endproc
+  61              	.LFE35:
+  62              		.size	MenuInit, .-MenuInit
+  63              		.section	.text.MenuBluetoothConnected,"ax",%progbits
+  64              		.align	2
+  65              		.global	MenuBluetoothConnected
+  66              		.code	16
+  67              		.thumb_func
+  68              		.type	MenuBluetoothConnected, %function
+  69              	MenuBluetoothConnected:
+  70              	.LFB36:
+  23:.\menu.c      **** 
+  24:.\menu.c      **** /*! Function that enable or disable the bluetooth logo
+  25:.\menu.c      ****  *  \param menu pointer to menu structure
+  26:.\menu.c      ****  *  \param enable status of the bluetooth connection
+  27:.\menu.c      ****  */
+  28:.\menu.c      **** void MenuBluetoothConnected(menu_t* menu, uint8_t enable){
+  71              		.loc 1 28 0
+  72              		.cfi_startproc
+  73              	.LVL6:
+  74 0000 08B5     		push	{r3, lr}
+  75              		.cfi_def_cfa_offset 8
+  76              		.cfi_offset 3, -8
+  77              		.cfi_offset 14, -4
+  29:.\menu.c      ****     if(enable){
+  78              		.loc 1 29 0
+  79 0002 0029     		cmp	r1, #0
+  80 0004 07D0     		beq	.L5
+  30:.\menu.c      ****         LCD_Position(0u, 19u);
+  81              		.loc 1 30 0
+  82 0006 0020     		mov	r0, #0
+  83              	.LVL7:
+  84 0008 1321     		mov	r1, #19
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 3
+
+
+  85              	.LVL8:
+  86 000a FFF7FEFF 		bl	LCD_Position
+  87              	.LVL9:
+  31:.\menu.c      ****         LCD_PutChar(LCD_CUSTOM_0);
+  88              		.loc 1 31 0
+  89 000e 0020     		mov	r0, #0
+  90 0010 FFF7FEFF 		bl	LCD_PutChar
+  91              	.LVL10:
+  92 0014 06E0     		b	.L4
+  93              	.LVL11:
+  94              	.L5:
+  32:.\menu.c      ****     }
+  33:.\menu.c      ****     else{
+  34:.\menu.c      ****         LCD_Position(0u, 19u);
+  95              		.loc 1 34 0
+  96 0016 0020     		mov	r0, #0
+  97              	.LVL12:
+  98 0018 1321     		mov	r1, #19
+  99              	.LVL13:
+ 100 001a FFF7FEFF 		bl	LCD_Position
+ 101              	.LVL14:
+  35:.\menu.c      ****         LCD_PutChar(' ');
+ 102              		.loc 1 35 0
+ 103 001e 2020     		mov	r0, #32
+ 104 0020 FFF7FEFF 		bl	LCD_PutChar
+ 105              	.LVL15:
+ 106              	.L4:
+  36:.\menu.c      ****     }
+  37:.\menu.c      **** }
+ 107              		.loc 1 37 0
+ 108              		@ sp needed
+ 109 0024 08BD     		pop	{r3, pc}
+ 110              		.cfi_endproc
+ 111              	.LFE36:
+ 112              		.size	MenuBluetoothConnected, .-MenuBluetoothConnected
+ 113 0026 C046     		.section	.rodata.str1.4,"aMS",%progbits,1
+ 114              		.align	2
+ 115              	.LC0:
+ 116 0000 44617473 		.ascii	"Datson Started\000"
+ 116      6F6E2053 
+ 116      74617274 
+ 116      656400
+ 117 000f 00       		.text
+ 118              	.Letext0:
+ 119              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.2\\psoc creator\\import\\gnu\\arm\\4.8.
+ 120              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.2\\psoc creator\\import\\gnu\\arm\\4.8.
+ 121              		.file 4 "Generated_Source\\PSoC4/cytypes.h"
+ 122              		.file 5 ".\\menu.h"
+ 123              		.file 6 "Generated_Source\\PSoC4/LCD.h"
+ 124              		.section	.debug_info,"",%progbits
+ 125              	.Ldebug_info0:
+ 126 0000 35020000 		.4byte	0x235
+ 127 0004 0400     		.2byte	0x4
+ 128 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 129 000a 04       		.byte	0x4
+ 130 000b 01       		.uleb128 0x1
+ 131 000c 28010000 		.4byte	.LASF25
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 4
+
+
+ 132 0010 01       		.byte	0x1
+ 133 0011 ED010000 		.4byte	.LASF26
+ 134 0015 CC000000 		.4byte	.LASF27
+ 135 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 136 001d 00000000 		.4byte	0
+ 137 0021 00000000 		.4byte	.Ldebug_line0
+ 138 0025 02       		.uleb128 0x2
+ 139 0026 01       		.byte	0x1
+ 140 0027 06       		.byte	0x6
+ 141 0028 CE010000 		.4byte	.LASF0
+ 142 002c 03       		.uleb128 0x3
+ 143 002d 09000000 		.4byte	.LASF9
+ 144 0031 02       		.byte	0x2
+ 145 0032 1C       		.byte	0x1c
+ 146 0033 37000000 		.4byte	0x37
+ 147 0037 02       		.uleb128 0x2
+ 148 0038 01       		.byte	0x1
+ 149 0039 08       		.byte	0x8
+ 150 003a 89000000 		.4byte	.LASF1
+ 151 003e 02       		.uleb128 0x2
+ 152 003f 02       		.byte	0x2
+ 153 0040 05       		.byte	0x5
+ 154 0041 BB010000 		.4byte	.LASF2
+ 155 0045 02       		.uleb128 0x2
+ 156 0046 02       		.byte	0x2
+ 157 0047 07       		.byte	0x7
+ 158 0048 DA010000 		.4byte	.LASF3
+ 159 004c 02       		.uleb128 0x2
+ 160 004d 04       		.byte	0x4
+ 161 004e 05       		.byte	0x5
+ 162 004f C5010000 		.4byte	.LASF4
+ 163 0053 02       		.uleb128 0x2
+ 164 0054 04       		.byte	0x4
+ 165 0055 07       		.byte	0x7
+ 166 0056 9D000000 		.4byte	.LASF5
+ 167 005a 02       		.uleb128 0x2
+ 168 005b 08       		.byte	0x8
+ 169 005c 05       		.byte	0x5
+ 170 005d AD010000 		.4byte	.LASF6
+ 171 0061 02       		.uleb128 0x2
+ 172 0062 08       		.byte	0x8
+ 173 0063 07       		.byte	0x7
+ 174 0064 5B000000 		.4byte	.LASF7
+ 175 0068 04       		.uleb128 0x4
+ 176 0069 04       		.byte	0x4
+ 177 006a 05       		.byte	0x5
+ 178 006b 696E7400 		.ascii	"int\000"
+ 179 006f 02       		.uleb128 0x2
+ 180 0070 04       		.byte	0x4
+ 181 0071 07       		.byte	0x7
+ 182 0072 30000000 		.4byte	.LASF8
+ 183 0076 03       		.uleb128 0x3
+ 184 0077 13010000 		.4byte	.LASF10
+ 185 007b 03       		.byte	0x3
+ 186 007c 2A       		.byte	0x2a
+ 187 007d 2C000000 		.4byte	0x2c
+ 188 0081 03       		.uleb128 0x3
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 5
+
+
+ 189 0082 AF000000 		.4byte	.LASF11
+ 190 0086 04       		.byte	0x4
+ 191 0087 C1       		.byte	0xc1
+ 192 0088 37000000 		.4byte	0x37
+ 193 008c 02       		.uleb128 0x2
+ 194 008d 04       		.byte	0x4
+ 195 008e 04       		.byte	0x4
+ 196 008f 4B000000 		.4byte	.LASF12
+ 197 0093 02       		.uleb128 0x2
+ 198 0094 08       		.byte	0x8
+ 199 0095 04       		.byte	0x4
+ 200 0096 B5000000 		.4byte	.LASF13
+ 201 009a 03       		.uleb128 0x3
+ 202 009b 97000000 		.4byte	.LASF14
+ 203 009f 04       		.byte	0x4
+ 204 00a0 D2       		.byte	0xd2
+ 205 00a1 A5000000 		.4byte	0xa5
+ 206 00a5 02       		.uleb128 0x2
+ 207 00a6 01       		.byte	0x1
+ 208 00a7 08       		.byte	0x8
+ 209 00a8 0E010000 		.4byte	.LASF15
+ 210 00ac 02       		.uleb128 0x2
+ 211 00ad 04       		.byte	0x4
+ 212 00ae 07       		.byte	0x7
+ 213 00af A4010000 		.4byte	.LASF16
+ 214 00b3 05       		.uleb128 0x5
+ 215 00b4 09010000 		.4byte	.LASF20
+ 216 00b8 01       		.byte	0x1
+ 217 00b9 05       		.byte	0x5
+ 218 00ba 18       		.byte	0x18
+ 219 00bb CA000000 		.4byte	0xca
+ 220 00bf 06       		.uleb128 0x6
+ 221 00c0 6100     		.ascii	"a\000"
+ 222 00c2 05       		.byte	0x5
+ 223 00c3 1A       		.byte	0x1a
+ 224 00c4 76000000 		.4byte	0x76
+ 225 00c8 00       		.byte	0
+ 226 00c9 00       		.byte	0
+ 227 00ca 03       		.uleb128 0x3
+ 228 00cb 3D000000 		.4byte	.LASF17
+ 229 00cf 05       		.byte	0x5
+ 230 00d0 1B       		.byte	0x1b
+ 231 00d1 B3000000 		.4byte	0xb3
+ 232 00d5 07       		.uleb128 0x7
+ 233 00d6 00000000 		.4byte	.LASF18
+ 234 00da 01       		.byte	0x1
+ 235 00db 10       		.byte	0x10
+ 236 00dc 00000000 		.4byte	.LFB35
+ 237 00e0 28000000 		.4byte	.LFE35-.LFB35
+ 238 00e4 01       		.uleb128 0x1
+ 239 00e5 9C       		.byte	0x9c
+ 240 00e6 54010000 		.4byte	0x154
+ 241 00ea 08       		.uleb128 0x8
+ 242 00eb 09010000 		.4byte	.LASF20
+ 243 00ef 01       		.byte	0x1
+ 244 00f0 10       		.byte	0x10
+ 245 00f1 54010000 		.4byte	0x154
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 6
+
+
+ 246 00f5 00000000 		.4byte	.LLST0
+ 247 00f9 09       		.uleb128 0x9
+ 248 00fa 06000000 		.4byte	.LVL1
+ 249 00fe E1010000 		.4byte	0x1e1
+ 250 0102 0A       		.uleb128 0xa
+ 251 0103 0C000000 		.4byte	.LVL2
+ 252 0107 E8010000 		.4byte	0x1e8
+ 253 010b 15010000 		.4byte	0x115
+ 254 010f 0B       		.uleb128 0xb
+ 255 0110 01       		.uleb128 0x1
+ 256 0111 50       		.byte	0x50
+ 257 0112 01       		.uleb128 0x1
+ 258 0113 31       		.byte	0x31
+ 259 0114 00       		.byte	0
+ 260 0115 0A       		.uleb128 0xa
+ 261 0116 12000000 		.4byte	.LVL3
+ 262 011a E8010000 		.4byte	0x1e8
+ 263 011e 28010000 		.4byte	0x128
+ 264 0122 0B       		.uleb128 0xb
+ 265 0123 01       		.uleb128 0x1
+ 266 0124 50       		.byte	0x50
+ 267 0125 01       		.uleb128 0x1
+ 268 0126 3C       		.byte	0x3c
+ 269 0127 00       		.byte	0
+ 270 0128 0A       		.uleb128 0xa
+ 271 0129 1A000000 		.4byte	.LVL4
+ 272 012d F9010000 		.4byte	0x1f9
+ 273 0131 40010000 		.4byte	0x140
+ 274 0135 0B       		.uleb128 0xb
+ 275 0136 01       		.uleb128 0x1
+ 276 0137 51       		.byte	0x51
+ 277 0138 01       		.uleb128 0x1
+ 278 0139 30       		.byte	0x30
+ 279 013a 0B       		.uleb128 0xb
+ 280 013b 01       		.uleb128 0x1
+ 281 013c 50       		.byte	0x50
+ 282 013d 01       		.uleb128 0x1
+ 283 013e 30       		.byte	0x30
+ 284 013f 00       		.byte	0
+ 285 0140 0C       		.uleb128 0xc
+ 286 0141 20000000 		.4byte	.LVL5
+ 287 0145 0F020000 		.4byte	0x20f
+ 288 0149 0B       		.uleb128 0xb
+ 289 014a 01       		.uleb128 0x1
+ 290 014b 50       		.byte	0x50
+ 291 014c 05       		.uleb128 0x5
+ 292 014d 03       		.byte	0x3
+ 293 014e 00000000 		.4byte	.LC0
+ 294 0152 00       		.byte	0
+ 295 0153 00       		.byte	0
+ 296 0154 0D       		.uleb128 0xd
+ 297 0155 04       		.byte	0x4
+ 298 0156 CA000000 		.4byte	0xca
+ 299 015a 07       		.uleb128 0x7
+ 300 015b 72000000 		.4byte	.LASF19
+ 301 015f 01       		.byte	0x1
+ 302 0160 1C       		.byte	0x1c
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 7
+
+
+ 303 0161 00000000 		.4byte	.LFB36
+ 304 0165 26000000 		.4byte	.LFE36-.LFB36
+ 305 0169 01       		.uleb128 0x1
+ 306 016a 9C       		.byte	0x9c
+ 307 016b E1010000 		.4byte	0x1e1
+ 308 016f 08       		.uleb128 0x8
+ 309 0170 09010000 		.4byte	.LASF20
+ 310 0174 01       		.byte	0x1
+ 311 0175 1C       		.byte	0x1c
+ 312 0176 54010000 		.4byte	0x154
+ 313 017a 21000000 		.4byte	.LLST1
+ 314 017e 08       		.uleb128 0x8
+ 315 017f 44000000 		.4byte	.LASF21
+ 316 0183 01       		.byte	0x1
+ 317 0184 1C       		.byte	0x1c
+ 318 0185 76000000 		.4byte	0x76
+ 319 0189 5B000000 		.4byte	.LLST2
+ 320 018d 0A       		.uleb128 0xa
+ 321 018e 0E000000 		.4byte	.LVL9
+ 322 0192 F9010000 		.4byte	0x1f9
+ 323 0196 A5010000 		.4byte	0x1a5
+ 324 019a 0B       		.uleb128 0xb
+ 325 019b 01       		.uleb128 0x1
+ 326 019c 51       		.byte	0x51
+ 327 019d 01       		.uleb128 0x1
+ 328 019e 43       		.byte	0x43
+ 329 019f 0B       		.uleb128 0xb
+ 330 01a0 01       		.uleb128 0x1
+ 331 01a1 50       		.byte	0x50
+ 332 01a2 01       		.uleb128 0x1
+ 333 01a3 30       		.byte	0x30
+ 334 01a4 00       		.byte	0
+ 335 01a5 0A       		.uleb128 0xa
+ 336 01a6 14000000 		.4byte	.LVL10
+ 337 01aa 2B020000 		.4byte	0x22b
+ 338 01ae B8010000 		.4byte	0x1b8
+ 339 01b2 0B       		.uleb128 0xb
+ 340 01b3 01       		.uleb128 0x1
+ 341 01b4 50       		.byte	0x50
+ 342 01b5 01       		.uleb128 0x1
+ 343 01b6 30       		.byte	0x30
+ 344 01b7 00       		.byte	0
+ 345 01b8 0A       		.uleb128 0xa
+ 346 01b9 1E000000 		.4byte	.LVL14
+ 347 01bd F9010000 		.4byte	0x1f9
+ 348 01c1 D0010000 		.4byte	0x1d0
+ 349 01c5 0B       		.uleb128 0xb
+ 350 01c6 01       		.uleb128 0x1
+ 351 01c7 51       		.byte	0x51
+ 352 01c8 01       		.uleb128 0x1
+ 353 01c9 43       		.byte	0x43
+ 354 01ca 0B       		.uleb128 0xb
+ 355 01cb 01       		.uleb128 0x1
+ 356 01cc 50       		.byte	0x50
+ 357 01cd 01       		.uleb128 0x1
+ 358 01ce 30       		.byte	0x30
+ 359 01cf 00       		.byte	0
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 8
+
+
+ 360 01d0 0C       		.uleb128 0xc
+ 361 01d1 24000000 		.4byte	.LVL15
+ 362 01d5 2B020000 		.4byte	0x22b
+ 363 01d9 0B       		.uleb128 0xb
+ 364 01da 01       		.uleb128 0x1
+ 365 01db 50       		.byte	0x50
+ 366 01dc 02       		.uleb128 0x2
+ 367 01dd 08       		.byte	0x8
+ 368 01de 20       		.byte	0x20
+ 369 01df 00       		.byte	0
+ 370 01e0 00       		.byte	0
+ 371 01e1 0E       		.uleb128 0xe
+ 372 01e2 51000000 		.4byte	.LASF28
+ 373 01e6 06       		.byte	0x6
+ 374 01e7 38       		.byte	0x38
+ 375 01e8 0F       		.uleb128 0xf
+ 376 01e9 13000000 		.4byte	.LASF22
+ 377 01ed 06       		.byte	0x6
+ 378 01ee 3A       		.byte	0x3a
+ 379 01ef F9010000 		.4byte	0x1f9
+ 380 01f3 10       		.uleb128 0x10
+ 381 01f4 81000000 		.4byte	0x81
+ 382 01f8 00       		.byte	0
+ 383 01f9 0F       		.uleb128 0xf
+ 384 01fa 1B010000 		.4byte	.LASF23
+ 385 01fe 06       		.byte	0x6
+ 386 01ff 3D       		.byte	0x3d
+ 387 0200 0F020000 		.4byte	0x20f
+ 388 0204 10       		.uleb128 0x10
+ 389 0205 81000000 		.4byte	0x81
+ 390 0209 10       		.uleb128 0x10
+ 391 020a 81000000 		.4byte	0x81
+ 392 020e 00       		.byte	0
+ 393 020f 0F       		.uleb128 0xf
+ 394 0210 BC000000 		.4byte	.LASF24
+ 395 0214 06       		.byte	0x6
+ 396 0215 3C       		.byte	0x3c
+ 397 0216 20020000 		.4byte	0x220
+ 398 021a 10       		.uleb128 0x10
+ 399 021b 20020000 		.4byte	0x220
+ 400 021f 00       		.byte	0
+ 401 0220 0D       		.uleb128 0xd
+ 402 0221 04       		.byte	0x4
+ 403 0222 26020000 		.4byte	0x226
+ 404 0226 11       		.uleb128 0x11
+ 405 0227 9A000000 		.4byte	0x9a
+ 406 022b 12       		.uleb128 0x12
+ 407 022c 24000000 		.4byte	.LASF29
+ 408 0230 06       		.byte	0x6
+ 409 0231 3E       		.byte	0x3e
+ 410 0232 10       		.uleb128 0x10
+ 411 0233 9A000000 		.4byte	0x9a
+ 412 0237 00       		.byte	0
+ 413 0238 00       		.byte	0
+ 414              		.section	.debug_abbrev,"",%progbits
+ 415              	.Ldebug_abbrev0:
+ 416 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 9
+
+
+ 417 0001 11       		.uleb128 0x11
+ 418 0002 01       		.byte	0x1
+ 419 0003 25       		.uleb128 0x25
+ 420 0004 0E       		.uleb128 0xe
+ 421 0005 13       		.uleb128 0x13
+ 422 0006 0B       		.uleb128 0xb
+ 423 0007 03       		.uleb128 0x3
+ 424 0008 0E       		.uleb128 0xe
+ 425 0009 1B       		.uleb128 0x1b
+ 426 000a 0E       		.uleb128 0xe
+ 427 000b 55       		.uleb128 0x55
+ 428 000c 17       		.uleb128 0x17
+ 429 000d 11       		.uleb128 0x11
+ 430 000e 01       		.uleb128 0x1
+ 431 000f 10       		.uleb128 0x10
+ 432 0010 17       		.uleb128 0x17
+ 433 0011 00       		.byte	0
+ 434 0012 00       		.byte	0
+ 435 0013 02       		.uleb128 0x2
+ 436 0014 24       		.uleb128 0x24
+ 437 0015 00       		.byte	0
+ 438 0016 0B       		.uleb128 0xb
+ 439 0017 0B       		.uleb128 0xb
+ 440 0018 3E       		.uleb128 0x3e
+ 441 0019 0B       		.uleb128 0xb
+ 442 001a 03       		.uleb128 0x3
+ 443 001b 0E       		.uleb128 0xe
+ 444 001c 00       		.byte	0
+ 445 001d 00       		.byte	0
+ 446 001e 03       		.uleb128 0x3
+ 447 001f 16       		.uleb128 0x16
+ 448 0020 00       		.byte	0
+ 449 0021 03       		.uleb128 0x3
+ 450 0022 0E       		.uleb128 0xe
+ 451 0023 3A       		.uleb128 0x3a
+ 452 0024 0B       		.uleb128 0xb
+ 453 0025 3B       		.uleb128 0x3b
+ 454 0026 0B       		.uleb128 0xb
+ 455 0027 49       		.uleb128 0x49
+ 456 0028 13       		.uleb128 0x13
+ 457 0029 00       		.byte	0
+ 458 002a 00       		.byte	0
+ 459 002b 04       		.uleb128 0x4
+ 460 002c 24       		.uleb128 0x24
+ 461 002d 00       		.byte	0
+ 462 002e 0B       		.uleb128 0xb
+ 463 002f 0B       		.uleb128 0xb
+ 464 0030 3E       		.uleb128 0x3e
+ 465 0031 0B       		.uleb128 0xb
+ 466 0032 03       		.uleb128 0x3
+ 467 0033 08       		.uleb128 0x8
+ 468 0034 00       		.byte	0
+ 469 0035 00       		.byte	0
+ 470 0036 05       		.uleb128 0x5
+ 471 0037 13       		.uleb128 0x13
+ 472 0038 01       		.byte	0x1
+ 473 0039 03       		.uleb128 0x3
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 10
+
+
+ 474 003a 0E       		.uleb128 0xe
+ 475 003b 0B       		.uleb128 0xb
+ 476 003c 0B       		.uleb128 0xb
+ 477 003d 3A       		.uleb128 0x3a
+ 478 003e 0B       		.uleb128 0xb
+ 479 003f 3B       		.uleb128 0x3b
+ 480 0040 0B       		.uleb128 0xb
+ 481 0041 01       		.uleb128 0x1
+ 482 0042 13       		.uleb128 0x13
+ 483 0043 00       		.byte	0
+ 484 0044 00       		.byte	0
+ 485 0045 06       		.uleb128 0x6
+ 486 0046 0D       		.uleb128 0xd
+ 487 0047 00       		.byte	0
+ 488 0048 03       		.uleb128 0x3
+ 489 0049 08       		.uleb128 0x8
+ 490 004a 3A       		.uleb128 0x3a
+ 491 004b 0B       		.uleb128 0xb
+ 492 004c 3B       		.uleb128 0x3b
+ 493 004d 0B       		.uleb128 0xb
+ 494 004e 49       		.uleb128 0x49
+ 495 004f 13       		.uleb128 0x13
+ 496 0050 38       		.uleb128 0x38
+ 497 0051 0B       		.uleb128 0xb
+ 498 0052 00       		.byte	0
+ 499 0053 00       		.byte	0
+ 500 0054 07       		.uleb128 0x7
+ 501 0055 2E       		.uleb128 0x2e
+ 502 0056 01       		.byte	0x1
+ 503 0057 3F       		.uleb128 0x3f
+ 504 0058 19       		.uleb128 0x19
+ 505 0059 03       		.uleb128 0x3
+ 506 005a 0E       		.uleb128 0xe
+ 507 005b 3A       		.uleb128 0x3a
+ 508 005c 0B       		.uleb128 0xb
+ 509 005d 3B       		.uleb128 0x3b
+ 510 005e 0B       		.uleb128 0xb
+ 511 005f 27       		.uleb128 0x27
+ 512 0060 19       		.uleb128 0x19
+ 513 0061 11       		.uleb128 0x11
+ 514 0062 01       		.uleb128 0x1
+ 515 0063 12       		.uleb128 0x12
+ 516 0064 06       		.uleb128 0x6
+ 517 0065 40       		.uleb128 0x40
+ 518 0066 18       		.uleb128 0x18
+ 519 0067 9742     		.uleb128 0x2117
+ 520 0069 19       		.uleb128 0x19
+ 521 006a 01       		.uleb128 0x1
+ 522 006b 13       		.uleb128 0x13
+ 523 006c 00       		.byte	0
+ 524 006d 00       		.byte	0
+ 525 006e 08       		.uleb128 0x8
+ 526 006f 05       		.uleb128 0x5
+ 527 0070 00       		.byte	0
+ 528 0071 03       		.uleb128 0x3
+ 529 0072 0E       		.uleb128 0xe
+ 530 0073 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 11
+
+
+ 531 0074 0B       		.uleb128 0xb
+ 532 0075 3B       		.uleb128 0x3b
+ 533 0076 0B       		.uleb128 0xb
+ 534 0077 49       		.uleb128 0x49
+ 535 0078 13       		.uleb128 0x13
+ 536 0079 02       		.uleb128 0x2
+ 537 007a 17       		.uleb128 0x17
+ 538 007b 00       		.byte	0
+ 539 007c 00       		.byte	0
+ 540 007d 09       		.uleb128 0x9
+ 541 007e 898201   		.uleb128 0x4109
+ 542 0081 00       		.byte	0
+ 543 0082 11       		.uleb128 0x11
+ 544 0083 01       		.uleb128 0x1
+ 545 0084 31       		.uleb128 0x31
+ 546 0085 13       		.uleb128 0x13
+ 547 0086 00       		.byte	0
+ 548 0087 00       		.byte	0
+ 549 0088 0A       		.uleb128 0xa
+ 550 0089 898201   		.uleb128 0x4109
+ 551 008c 01       		.byte	0x1
+ 552 008d 11       		.uleb128 0x11
+ 553 008e 01       		.uleb128 0x1
+ 554 008f 31       		.uleb128 0x31
+ 555 0090 13       		.uleb128 0x13
+ 556 0091 01       		.uleb128 0x1
+ 557 0092 13       		.uleb128 0x13
+ 558 0093 00       		.byte	0
+ 559 0094 00       		.byte	0
+ 560 0095 0B       		.uleb128 0xb
+ 561 0096 8A8201   		.uleb128 0x410a
+ 562 0099 00       		.byte	0
+ 563 009a 02       		.uleb128 0x2
+ 564 009b 18       		.uleb128 0x18
+ 565 009c 9142     		.uleb128 0x2111
+ 566 009e 18       		.uleb128 0x18
+ 567 009f 00       		.byte	0
+ 568 00a0 00       		.byte	0
+ 569 00a1 0C       		.uleb128 0xc
+ 570 00a2 898201   		.uleb128 0x4109
+ 571 00a5 01       		.byte	0x1
+ 572 00a6 11       		.uleb128 0x11
+ 573 00a7 01       		.uleb128 0x1
+ 574 00a8 31       		.uleb128 0x31
+ 575 00a9 13       		.uleb128 0x13
+ 576 00aa 00       		.byte	0
+ 577 00ab 00       		.byte	0
+ 578 00ac 0D       		.uleb128 0xd
+ 579 00ad 0F       		.uleb128 0xf
+ 580 00ae 00       		.byte	0
+ 581 00af 0B       		.uleb128 0xb
+ 582 00b0 0B       		.uleb128 0xb
+ 583 00b1 49       		.uleb128 0x49
+ 584 00b2 13       		.uleb128 0x13
+ 585 00b3 00       		.byte	0
+ 586 00b4 00       		.byte	0
+ 587 00b5 0E       		.uleb128 0xe
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 12
+
+
+ 588 00b6 2E       		.uleb128 0x2e
+ 589 00b7 00       		.byte	0
+ 590 00b8 3F       		.uleb128 0x3f
+ 591 00b9 19       		.uleb128 0x19
+ 592 00ba 03       		.uleb128 0x3
+ 593 00bb 0E       		.uleb128 0xe
+ 594 00bc 3A       		.uleb128 0x3a
+ 595 00bd 0B       		.uleb128 0xb
+ 596 00be 3B       		.uleb128 0x3b
+ 597 00bf 0B       		.uleb128 0xb
+ 598 00c0 27       		.uleb128 0x27
+ 599 00c1 19       		.uleb128 0x19
+ 600 00c2 3C       		.uleb128 0x3c
+ 601 00c3 19       		.uleb128 0x19
+ 602 00c4 00       		.byte	0
+ 603 00c5 00       		.byte	0
+ 604 00c6 0F       		.uleb128 0xf
+ 605 00c7 2E       		.uleb128 0x2e
+ 606 00c8 01       		.byte	0x1
+ 607 00c9 3F       		.uleb128 0x3f
+ 608 00ca 19       		.uleb128 0x19
+ 609 00cb 03       		.uleb128 0x3
+ 610 00cc 0E       		.uleb128 0xe
+ 611 00cd 3A       		.uleb128 0x3a
+ 612 00ce 0B       		.uleb128 0xb
+ 613 00cf 3B       		.uleb128 0x3b
+ 614 00d0 0B       		.uleb128 0xb
+ 615 00d1 27       		.uleb128 0x27
+ 616 00d2 19       		.uleb128 0x19
+ 617 00d3 3C       		.uleb128 0x3c
+ 618 00d4 19       		.uleb128 0x19
+ 619 00d5 01       		.uleb128 0x1
+ 620 00d6 13       		.uleb128 0x13
+ 621 00d7 00       		.byte	0
+ 622 00d8 00       		.byte	0
+ 623 00d9 10       		.uleb128 0x10
+ 624 00da 05       		.uleb128 0x5
+ 625 00db 00       		.byte	0
+ 626 00dc 49       		.uleb128 0x49
+ 627 00dd 13       		.uleb128 0x13
+ 628 00de 00       		.byte	0
+ 629 00df 00       		.byte	0
+ 630 00e0 11       		.uleb128 0x11
+ 631 00e1 26       		.uleb128 0x26
+ 632 00e2 00       		.byte	0
+ 633 00e3 49       		.uleb128 0x49
+ 634 00e4 13       		.uleb128 0x13
+ 635 00e5 00       		.byte	0
+ 636 00e6 00       		.byte	0
+ 637 00e7 12       		.uleb128 0x12
+ 638 00e8 2E       		.uleb128 0x2e
+ 639 00e9 01       		.byte	0x1
+ 640 00ea 3F       		.uleb128 0x3f
+ 641 00eb 19       		.uleb128 0x19
+ 642 00ec 03       		.uleb128 0x3
+ 643 00ed 0E       		.uleb128 0xe
+ 644 00ee 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 13
+
+
+ 645 00ef 0B       		.uleb128 0xb
+ 646 00f0 3B       		.uleb128 0x3b
+ 647 00f1 0B       		.uleb128 0xb
+ 648 00f2 27       		.uleb128 0x27
+ 649 00f3 19       		.uleb128 0x19
+ 650 00f4 3C       		.uleb128 0x3c
+ 651 00f5 19       		.uleb128 0x19
+ 652 00f6 00       		.byte	0
+ 653 00f7 00       		.byte	0
+ 654 00f8 00       		.byte	0
+ 655              		.section	.debug_loc,"",%progbits
+ 656              	.Ldebug_loc0:
+ 657              	.LLST0:
+ 658 0000 00000000 		.4byte	.LVL0
+ 659 0004 05000000 		.4byte	.LVL1-1
+ 660 0008 0100     		.2byte	0x1
+ 661 000a 50       		.byte	0x50
+ 662 000b 05000000 		.4byte	.LVL1-1
+ 663 000f 28000000 		.4byte	.LFE35
+ 664 0013 0400     		.2byte	0x4
+ 665 0015 F3       		.byte	0xf3
+ 666 0016 01       		.uleb128 0x1
+ 667 0017 50       		.byte	0x50
+ 668 0018 9F       		.byte	0x9f
+ 669 0019 00000000 		.4byte	0
+ 670 001d 00000000 		.4byte	0
+ 671              	.LLST1:
+ 672 0021 00000000 		.4byte	.LVL6
+ 673 0025 08000000 		.4byte	.LVL7
+ 674 0029 0100     		.2byte	0x1
+ 675 002b 50       		.byte	0x50
+ 676 002c 08000000 		.4byte	.LVL7
+ 677 0030 16000000 		.4byte	.LVL11
+ 678 0034 0400     		.2byte	0x4
+ 679 0036 F3       		.byte	0xf3
+ 680 0037 01       		.uleb128 0x1
+ 681 0038 50       		.byte	0x50
+ 682 0039 9F       		.byte	0x9f
+ 683 003a 16000000 		.4byte	.LVL11
+ 684 003e 18000000 		.4byte	.LVL12
+ 685 0042 0100     		.2byte	0x1
+ 686 0044 50       		.byte	0x50
+ 687 0045 18000000 		.4byte	.LVL12
+ 688 0049 26000000 		.4byte	.LFE36
+ 689 004d 0400     		.2byte	0x4
+ 690 004f F3       		.byte	0xf3
+ 691 0050 01       		.uleb128 0x1
+ 692 0051 50       		.byte	0x50
+ 693 0052 9F       		.byte	0x9f
+ 694 0053 00000000 		.4byte	0
+ 695 0057 00000000 		.4byte	0
+ 696              	.LLST2:
+ 697 005b 00000000 		.4byte	.LVL6
+ 698 005f 0A000000 		.4byte	.LVL8
+ 699 0063 0100     		.2byte	0x1
+ 700 0065 51       		.byte	0x51
+ 701 0066 0A000000 		.4byte	.LVL8
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 14
+
+
+ 702 006a 16000000 		.4byte	.LVL11
+ 703 006e 0400     		.2byte	0x4
+ 704 0070 F3       		.byte	0xf3
+ 705 0071 01       		.uleb128 0x1
+ 706 0072 51       		.byte	0x51
+ 707 0073 9F       		.byte	0x9f
+ 708 0074 16000000 		.4byte	.LVL11
+ 709 0078 1A000000 		.4byte	.LVL13
+ 710 007c 0100     		.2byte	0x1
+ 711 007e 51       		.byte	0x51
+ 712 007f 1A000000 		.4byte	.LVL13
+ 713 0083 26000000 		.4byte	.LFE36
+ 714 0087 0400     		.2byte	0x4
+ 715 0089 F3       		.byte	0xf3
+ 716 008a 01       		.uleb128 0x1
+ 717 008b 51       		.byte	0x51
+ 718 008c 9F       		.byte	0x9f
+ 719 008d 00000000 		.4byte	0
+ 720 0091 00000000 		.4byte	0
+ 721              		.section	.debug_aranges,"",%progbits
+ 722 0000 24000000 		.4byte	0x24
+ 723 0004 0200     		.2byte	0x2
+ 724 0006 00000000 		.4byte	.Ldebug_info0
+ 725 000a 04       		.byte	0x4
+ 726 000b 00       		.byte	0
+ 727 000c 0000     		.2byte	0
+ 728 000e 0000     		.2byte	0
+ 729 0010 00000000 		.4byte	.LFB35
+ 730 0014 28000000 		.4byte	.LFE35-.LFB35
+ 731 0018 00000000 		.4byte	.LFB36
+ 732 001c 26000000 		.4byte	.LFE36-.LFB36
+ 733 0020 00000000 		.4byte	0
+ 734 0024 00000000 		.4byte	0
+ 735              		.section	.debug_ranges,"",%progbits
+ 736              	.Ldebug_ranges0:
+ 737 0000 00000000 		.4byte	.LFB35
+ 738 0004 28000000 		.4byte	.LFE35
+ 739 0008 00000000 		.4byte	.LFB36
+ 740 000c 26000000 		.4byte	.LFE36
+ 741 0010 00000000 		.4byte	0
+ 742 0014 00000000 		.4byte	0
+ 743              		.section	.debug_line,"",%progbits
+ 744              	.Ldebug_line0:
+ 745 0000 80010000 		.section	.debug_str,"MS",%progbits,1
+ 745      02005001 
+ 745      00000201 
+ 745      FB0E0D00 
+ 745      01010101 
+ 746              	.LASF18:
+ 747 0000 4D656E75 		.ascii	"MenuInit\000"
+ 747      496E6974 
+ 747      00
+ 748              	.LASF9:
+ 749 0009 5F5F7569 		.ascii	"__uint8_t\000"
+ 749      6E74385F 
+ 749      7400
+ 750              	.LASF22:
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 15
+
+
+ 751 0013 4C43445F 		.ascii	"LCD_WriteControl\000"
+ 751      57726974 
+ 751      65436F6E 
+ 751      74726F6C 
+ 751      00
+ 752              	.LASF29:
+ 753 0024 4C43445F 		.ascii	"LCD_PutChar\000"
+ 753      50757443 
+ 753      68617200 
+ 754              	.LASF8:
+ 755 0030 756E7369 		.ascii	"unsigned int\000"
+ 755      676E6564 
+ 755      20696E74 
+ 755      00
+ 756              	.LASF17:
+ 757 003d 6D656E75 		.ascii	"menu_t\000"
+ 757      5F7400
+ 758              	.LASF21:
+ 759 0044 656E6162 		.ascii	"enable\000"
+ 759      6C6500
+ 760              	.LASF12:
+ 761 004b 666C6F61 		.ascii	"float\000"
+ 761      7400
+ 762              	.LASF28:
+ 763 0051 4C43445F 		.ascii	"LCD_Start\000"
+ 763      53746172 
+ 763      7400
+ 764              	.LASF7:
+ 765 005b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 765      206C6F6E 
+ 765      6720756E 
+ 765      7369676E 
+ 765      65642069 
+ 766              	.LASF19:
+ 767 0072 4D656E75 		.ascii	"MenuBluetoothConnected\000"
+ 767      426C7565 
+ 767      746F6F74 
+ 767      68436F6E 
+ 767      6E656374 
+ 768              	.LASF1:
+ 769 0089 756E7369 		.ascii	"unsigned char\000"
+ 769      676E6564 
+ 769      20636861 
+ 769      7200
+ 770              	.LASF14:
+ 771 0097 63686172 		.ascii	"char8\000"
+ 771      3800
+ 772              	.LASF5:
+ 773 009d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 773      20756E73 
+ 773      69676E65 
+ 773      6420696E 
+ 773      7400
+ 774              	.LASF11:
+ 775 00af 75696E74 		.ascii	"uint8\000"
+ 775      3800
+ 776              	.LASF13:
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 16
+
+
+ 777 00b5 646F7562 		.ascii	"double\000"
+ 777      6C6500
+ 778              	.LASF24:
+ 779 00bc 4C43445F 		.ascii	"LCD_PrintString\000"
+ 779      5072696E 
+ 779      74537472 
+ 779      696E6700 
+ 780              	.LASF27:
+ 781 00cc 433A5C55 		.ascii	"C:\\Users\\David\\Documents\\GitHub\\Datson\\Firmwa"
+ 781      73657273 
+ 781      5C446176 
+ 781      69645C44 
+ 781      6F63756D 
+ 782 00f9 72655C44 		.ascii	"re\\Datson.cydsn\000"
+ 782      6174736F 
+ 782      6E2E6379 
+ 782      64736E00 
+ 783              	.LASF20:
+ 784 0109 6D656E75 		.ascii	"menu\000"
+ 784      00
+ 785              	.LASF15:
+ 786 010e 63686172 		.ascii	"char\000"
+ 786      00
+ 787              	.LASF10:
+ 788 0113 75696E74 		.ascii	"uint8_t\000"
+ 788      385F7400 
+ 789              	.LASF23:
+ 790 011b 4C43445F 		.ascii	"LCD_Position\000"
+ 790      506F7369 
+ 790      74696F6E 
+ 790      00
+ 791              	.LASF25:
+ 792 0128 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 792      4320342E 
+ 792      382E3420 
+ 792      32303134 
+ 792      30353236 
+ 793 015b 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 793      20726576 
+ 793      6973696F 
+ 793      6E203231 
+ 793      31333538 
+ 794 018e 67202D66 		.ascii	"g -ffunction-sections\000"
+ 794      66756E63 
+ 794      74696F6E 
+ 794      2D736563 
+ 794      74696F6E 
+ 795              	.LASF16:
+ 796 01a4 73697A65 		.ascii	"sizetype\000"
+ 796      74797065 
+ 796      00
+ 797              	.LASF6:
+ 798 01ad 6C6F6E67 		.ascii	"long long int\000"
+ 798      206C6F6E 
+ 798      6720696E 
+ 798      7400
+ 799              	.LASF2:
+ARM GAS  C:\Users\David\AppData\Local\Temp\ccT2keBW.s 			page 17
+
+
+ 800 01bb 73686F72 		.ascii	"short int\000"
+ 800      7420696E 
+ 800      7400
+ 801              	.LASF4:
+ 802 01c5 6C6F6E67 		.ascii	"long int\000"
+ 802      20696E74 
+ 802      00
+ 803              	.LASF0:
+ 804 01ce 7369676E 		.ascii	"signed char\000"
+ 804      65642063 
+ 804      68617200 
+ 805              	.LASF3:
+ 806 01da 73686F72 		.ascii	"short unsigned int\000"
+ 806      7420756E 
+ 806      7369676E 
+ 806      65642069 
+ 806      6E7400
+ 807              	.LASF26:
+ 808 01ed 2E5C6D65 		.ascii	".\\menu.c\000"
+ 808      6E752E63 
+ 808      00
+ 809              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

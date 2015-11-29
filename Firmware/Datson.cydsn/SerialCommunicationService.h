@@ -31,37 +31,37 @@ typedef struct serialCommunicaitonService
 /*****************************************************************************
 * Public functions
 *****************************************************************************/
-/*! Function that Initialize hexoskin command service structure
- *  \param command pointer to hexoskin command Service structure
+/*! Function that Initialize serial communication service structure
+ *  \param serial pointer to serialCommunicaitonService_t structure
  */
 void SerialCommunicationInit(serialCommunicaitonService_t* serial);
 
-/*! Function that handle hexoskin command characteristics
- *  \param command pointer to hexoskin command Service structure
+/*! Function that handle serial communication Rx characteristics
+ *  \param serial pointer to serialCommunicaitonService_t structure
  *  \param eventParam event parameter from main event handler
  *  \return int16_t status
  */
 int16_t SerialCommunicationServiceCharacteristicHandler(serialCommunicaitonService_t* serial, void* eventParam);
 
 /*! Function that send a tx notification
- *  \param data pointer to hexoskinDataService_t structure
+ *  \param serial pointer to serialCommunicaitonService_t structure
  *  \param dataLength lenght of the data to send. Between ]0, DATA_PACKET_SIZE]
- *  \return hexoskinDataServiceError_t status
+ *  \return int16_t status
  */
 int16_t SerialCommunicationServiceTxNotificationCCCD(serialCommunicaitonService_t* serial, uint8_t dataLength);
 
 /*! Function that handle the CCCD flag. Notification enable or disable
- *  \param data pointer to hexoskinDataService_t structure
+ *  \param serial pointer to serialCommunicaitonService_t structure
  *  \param eventParam pointer to event parameter
- *  \return hexoskinDataServiceError_t status
+ *  \return int16_t status
  */
 int16_t SerialCommunicationServiceNotificationHandler(serialCommunicaitonService_t* serial, void* eventParam);
 
 /*! Reset the notification flag. Should be used when there's a ble disconnection.
- *  \param data pointer to hexoskinDataService_t structure
+ *  \param serial pointer to serialCommunicaitonService_t structure
  */
-void SerialCommunicationServiceReset(serialCommunicaitonService_t* data);
+void SerialCommunicationServiceReset(serialCommunicaitonService_t* serial);
 
-#endif /* __HEXOSKINCOMMANDSERVICE_H__ */   
+#endif /* __SERIALCOMMUNICATIONSERVICE_H__ */   
 
 /* [] END OF FILE */

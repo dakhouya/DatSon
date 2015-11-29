@@ -17,6 +17,7 @@
   <file name="C:\Users\David\Documents\GitHub\Datson\Firmware\Datson.cydsn\codegentemp\LCD.c" value="ARM_C_FILE;LCD" />
   <file name="C:\Users\David\Documents\GitHub\Datson\Firmware\Datson.cydsn\codegentemp\LCD.h" value="NONE;LCD" />
   <file name="C:\Users\David\Documents\GitHub\Datson\Firmware\Datson.cydsn\codegentemp\LCD_PM.c" value="ARM_C_FILE;LCD" />
+  <file name="C:\Users\David\Documents\GitHub\Datson\Firmware\Datson.cydsn\codegentemp\LCD_CustChars.c" value="ARM_C_FILE;LCD" />
   <file name="C:\Users\David\Documents\GitHub\Datson\Firmware\Datson.cydsn\codegentemp\PWM_1.c" value="ARM_C_FILE;PWM_1" />
   <file name="C:\Users\David\Documents\GitHub\Datson\Firmware\Datson.cydsn\codegentemp\PWM_1.h" value="NONE;PWM_1" />
   <file name="C:\Users\David\Documents\GitHub\Datson\Firmware\Datson.cydsn\codegentemp\PWM_1_PM.c" value="ARM_C_FILE;PWM_1" />

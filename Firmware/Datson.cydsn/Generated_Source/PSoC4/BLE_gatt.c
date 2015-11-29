@@ -119,13 +119,13 @@ const CYBLE_GATTS_DB_T cyBle_gattDB[0x11u] = {
     { 0x0008u, 0x2800u /* Primary service                     */, 0x00000001u /*        */, 0x000Bu, {{0x1801u, NULL}}                           },
     { 0x0009u, 0x2803u /* Characteristic                      */, 0x00002201u /* rd,ind */, 0x000Bu, {{0x2A05u, NULL}}                           },
     { 0x000Au, 0x2A05u /* Service Changed                     */, 0x00002201u /* rd,ind */, 0x000Bu, {{0x0004u, (void *)&cyBle_attValuesLen[3]}} },
-    { 0x000Bu, 0x2902u /* Client Characteristic Configuration */, 0x00000A04u /* rd,wr  */, 0x000Bu, {{0x0002u, (void *)&cyBle_attValuesLen[4]}} },
+    { 0x000Bu, 0x2902u /* Client Characteristic Configuration */, 0x00000A0Eu /* rd,wr  */, 0x000Bu, {{0x0002u, (void *)&cyBle_attValuesLen[4]}} },
     { 0x000Cu, 0x2800u /* Primary service                     */, 0x00080001u /*        */, 0x0011u, {{0x0010u, (void *)&cyBle_attValuesLen[5]}} },
     { 0x000Du, 0x2803u /* Characteristic                      */, 0x00000801u /* wr     */, 0x000Eu, {{0x0010u, (void *)&cyBle_attValuesLen[6]}} },
-    { 0x000Eu, 0x0000u /* Rx                                  */, 0x00080802u /* wr     */, 0x000Eu, {{0x0014u, (void *)&cyBle_attValuesLen[7]}} },
+    { 0x000Eu, 0x0000u /* Rx                                  */, 0x0008080Au /* wr     */, 0x000Eu, {{0x0014u, (void *)&cyBle_attValuesLen[7]}} },
     { 0x000Fu, 0x2803u /* Characteristic                      */, 0x00001001u /* ntf    */, 0x0011u, {{0x0010u, (void *)&cyBle_attValuesLen[8]}} },
     { 0x0010u, 0x0000u /* Tx                                  */, 0x00081000u /* ntf    */, 0x0011u, {{0x0014u, (void *)&cyBle_attValuesLen[9]}} },
-    { 0x0011u, 0x2902u /* Client Characteristic Configuration */, 0x00000A04u /* rd,wr  */, 0x0011u, {{0x0002u, (void *)&cyBle_attValuesLen[10]}} },
+    { 0x0011u, 0x2902u /* Client Characteristic Configuration */, 0x00000A0Eu /* rd,wr  */, 0x0011u, {{0x0002u, (void *)&cyBle_attValuesLen[10]}} },
 };
 
 

@@ -3,12 +3,14 @@
 *****************************************************************************/
 #include <project.h>
 #include "bleconnection.h"
+#include "menu.h"
 #include "SerialCommunicationService.h"
 
 /*****************************************************************************
 * Global variables
 *****************************************************************************/
 bleConnection_t bleConnection;
+menu_t menu;
 serialCommunicaitonService_t serialCommunicationService;
 
 /*****************************************************************************
@@ -23,18 +25,14 @@ int main()
 {
     /*Init stack*/
     BleConnectionInit(&bleConnection, StackEventHandler);
-    CyGlobalIntEnable; /* Enable global interrupts. */
-    LCD_Start();
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-    LCD_DisplayOn();
-    LCD_Position(0u, 0u);
-    LCD_PrintString("Horizontal BG");
-    LCD_Position(1u, 0u);
-    LCD_PrintString("Demo complete");
+    
     PWM_1_Start();
     PWM_2_Start();
+    CyGlobalIntEnable; /* Enable global interrupts. */
     for(;;)
     {
+        BleConnectionStartPairing(&bleConnection);
+        
         /* Place your application code here. */
         CyBle_ProcessEvents();
     }
@@ -63,6 +61,9 @@ void StackEventHandler(uint32 event, void* eventParam){
         case CYBLE_EVT_STACK_ON:
             /* Initialize services*/
             SerialCommunicationInit(&serialCommunicationService);
+            
+            /*App init*/
+            MenuInit(&menu);
             /* Put the device into discoverable mode so that remote peer can see it. */
             BleConnectionStartAdvertising(&bleConnection);
             break;
@@ -72,6 +73,8 @@ void StackEventHandler(uint32 event, void* eventParam){
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED:
             /*Reset services*/
             SerialCommunicationServiceReset(&serialCommunicationService);
+            /*Reset apps*/
+            MenuBluetoothConnected(&menu, MENU_BLUETOOTH_DISABLE);
             /* Put the device into discoverable mode so that remote peer can see it. */
             BleConnectionStartAdvertising(&bleConnection);
             break;
@@ -84,7 +87,7 @@ void StackEventHandler(uint32 event, void* eventParam){
             break;
 
         case CYBLE_EVT_GAP_DEVICE_CONNECTED:
-
+            MenuBluetoothConnected(&menu, MENU_BLUETOOTH_ENABLE);
             break;
             
             /*Authentification complete with or without error*/
