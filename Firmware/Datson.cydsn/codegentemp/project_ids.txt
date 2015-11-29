@@ -1,0 +1,5 @@
+C:\Users\David\Documents\GitHub\Datson\Firmware\Datson.cydsn\Datson.cyprj|5945dddf-c252-4330-95bf-a2cdc4f817f3
+C:\Program Files (x86)\Cypress\PSoC Creator\3.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5eccf1a6-68b8-461e-844a-2fce9e999ce2
+C:\Program Files (x86)\Cypress\PSoC Creator\3.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|86332ab0-b3e4-4314-82ae-1c0e79fac2e2
+C:\Program Files (x86)\Cypress\PSoC Creator\3.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|c842c78e-3861-4659-bb18-a4b3da6b9b63
+C:\Program Files (x86)\Cypress\PSoC Creator\3.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|0736d0b3-844e-4346-a9ff-1941d7f23833
